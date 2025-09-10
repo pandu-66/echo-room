@@ -82,6 +82,7 @@ export default function useWebSocket(url){
 
             ws.current.onclose = (event)=>{
                 console.log(event.wasClean);
+                console.log(event.code);
                 if(event.code>=4000 && event.code<=4100){
                     navigate("/room");
                 }
