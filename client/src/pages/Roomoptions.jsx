@@ -33,7 +33,7 @@ export default function Roomoptions() {
   return (
     <>
       <div className="w-screen h-screen flex justify-center items-center">
-      <div className="bg-txt dark:bg-brand-light max-w-md w-full p-8 rounded-xl shadow-md">
+      <div className="bg-txt dark:bg-brand-light max-w-md w-sm lg:w-md p-8 rounded-xl shadow-md">
         
         <div className="flex justify-between items-center mb-6">
           <Logo />

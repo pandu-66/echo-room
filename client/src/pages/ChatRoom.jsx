@@ -1,4 +1,4 @@
-import { ArrowRightStartOnRectangleIcon, ClipboardDocumentIcon, UserIcon, UserCircleIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
+import { ArrowRightStartOnRectangleIcon, ClipboardDocumentIcon, UserIcon, UserCircleIcon, InformationCircleIcon, Bars3CenterLeftIcon } from "@heroicons/react/24/solid";
 import Logo from "../Components/Logo";
 import Theme from "../Components/Theme";
 import useWebSocket from "../hooks/useWebSocket";
@@ -18,6 +18,7 @@ export default function ChatRoom() {
     [participants]
   );
   const bottomRef = useRef(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const isYou = (id)=>{
     let userId;
@@ -89,9 +90,13 @@ export default function ChatRoom() {
           <InformationCircleIcon className="w-4 h-4"/>
           {notification}
         </div>
-      )}      
+      )}
 
-      <aside className="w-64 bg-txt dark:bg-brand-light h-full flex flex-col p-6">
+      <div className="md:hidden fixed top-4 left-4 p-2 cursor-pointer" onClick={()=>setSidebarOpen(true)}>
+        <Bars3CenterLeftIcon className="w-6 h-6"/>
+      </div>
+
+      <aside className={`fixed top-0 left-0 z-40 transform transition-transform duration-300 w-64 bg-txt dark:bg-brand-light h-full flex flex-col p-6 ${sidebarOpen?'translate-x-0':'-translate-x-full'} md:static md:translate-x-0`}>
         <div className='mb-2 flex justify-between'>
             <Logo/>
             <Theme/>
@@ -126,11 +131,14 @@ export default function ChatRoom() {
           Leave Room
         </button>
         <div className='flex flex-col items-center gap-2 text-xs justify-center mt-8 text-brand-dark/70 dark:text-txt/70'>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms and conditions</a>
+            <a>Privacy Policy</a>
+            <a>Terms and conditions</a>
           </div>
       </aside>
 
+      {sidebarOpen&&(
+        <div className="fixed inset-0 z-30 bg-black/50 md:hidden" onClick={()=> setSidebarOpen(false)}/>
+      )}
 
       <main className="flex-1 flex flex-col mt-5">
         

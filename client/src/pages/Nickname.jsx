@@ -18,7 +18,7 @@ export default function Nickname(){
 
     return(
         <div className="w-screen h-screen flex justify-center items-center">
-        <div className="bg-txt dark:bg-brand-light p-8 rounded-xl max-w-md w-full">
+        <div className="bg-txt dark:bg-brand-light p-8 rounded-xl max-w-md lg:w-md">
           <div className='mb-2 flex justify-between'>
             <Logo/>
             <Theme/>
