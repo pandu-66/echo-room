@@ -83,7 +83,7 @@ export default function ChatRoom() {
   }
 
   return (
-    <div className="w-screen h-screen flex bg-white dark:bg-brand-dark text-brand-dark dark:text-txt max-w-screen max-h-screen">
+    <div className="w-screen h-screen flex bg-white dark:bg-brand-dark text-brand-dark dark:text-txt min-w-screen min-h-screen">
 
       {notification&&(
         <div className="fixed top-2 right-2 bg-brand-light/90 dark:bg-txt/90 text-txt dark:text-brand-light rounded italic text-sm p-2 flex items-center justify-evenly gap-1">
